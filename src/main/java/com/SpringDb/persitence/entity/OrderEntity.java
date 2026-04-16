@@ -1,12 +1,16 @@
 package com.SpringDb.persitence.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,5 +37,13 @@ public class OrderEntity {
 
     @Column(name="additional_notes", length = 200)
     private String additionalNotes;
+
+    @OneToOne
+    @JoinColumn(name = "id_custommer", referencedColumnName = "id_customer", insertable = false, updatable = false)
+    private CustomerEntity customer;
+
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItemEntity>items;
 
 }

@@ -23,7 +23,7 @@ public class OrderItemEntity {
     @Column(name = "id_item", nullable = false)
     private Integer idItem;
 
-    @Column(name = "id_pitzza",nullable = false)
+    @Column(name = "id_pizza",nullable = false)
     private Integer idPizza;
 
     @Column (nullable = false, columnDefinition = "Decimal(2,1)")

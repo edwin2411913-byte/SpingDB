@@ -23,7 +23,7 @@ public class OrderEntity {
     private Integer idOrder;
 
 
-    @Column(name = "id_custummer", nullable = false, length = 15)
+    @Column(name = "id_customer", nullable = false, length = 15)
     private String idCustomer;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP")
@@ -39,7 +39,7 @@ public class OrderEntity {
     private String additionalNotes;
 
     @OneToOne
-    @JoinColumn(name = "id_custommer", referencedColumnName = "id_customer", insertable = false, updatable = false)
+    @JoinColumn(name = "id_customer", referencedColumnName = "id_customer", insertable = false, updatable = false)
     private CustomerEntity customer;
 
 

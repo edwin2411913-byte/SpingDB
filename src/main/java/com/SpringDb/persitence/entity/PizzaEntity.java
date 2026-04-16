@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name ="pitzza" )
+@Table(name ="pizza" )
 @Getter
 @Setter
 @NoArgsConstructor
 public class PizzaEntity {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "id_Pizza", nullable = false)
+    @Column(name = "id_pizza", nullable = false)
     private Integer idPizza;
 
     @Column(nullable = false, length = 30, unique = true)
@@ -40,7 +40,7 @@ public class PizzaEntity {
 
 
     @Column(columnDefinition = "BOOLEAN", nullable = false)
-    private Boolean avalable;
+    private Boolean available;
 
    
 

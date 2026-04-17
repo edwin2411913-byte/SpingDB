@@ -1,5 +1,6 @@
 package com.SpringDb.persitence.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,11 +30,11 @@ public class OrderEntity {
     @Column(nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime date;
 
-    @Column(nullable = false, columnDefinition = "DECIMAL(6,2)")
-    private Double total;
+    @Column(nullable = false, precision = 6 ,scale = 2)
+    private BigDecimal total;
 
     @Column(nullable = false, columnDefinition = "CHAR(1)")
-    private String method;
+    private Character method;
 
     @Column(name="additional_notes", length = 200)
     private String additionalNotes;

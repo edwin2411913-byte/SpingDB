@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Table(name = "order_item")
@@ -26,11 +28,11 @@ public class OrderItemEntity {
     @Column(name = "id_pizza",nullable = false)
     private Integer idPizza;
 
-    @Column (nullable = false, columnDefinition = "Decimal(2,1)")
-    private Double quantity;
+    @Column (nullable = false, precision=2 , scale = 1)
+    private BigDecimal quantity;
 
-    @Column(nullable = false, columnDefinition = "Decimal(5,2)")
-    private Double price;
+    @Column(nullable = false, precision = 5, scale = 2)
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "id_order", referencedColumnName ="id_order", insertable = false, updatable = false )

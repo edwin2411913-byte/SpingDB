@@ -2,9 +2,7 @@ package com.SpringDb.web.controller;
 
 import java.util.List;
 
-import jdk.javadoc.doclet.Reporter;
-import org.aspectj.apache.bcel.Repository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +15,7 @@ import com.SpringDb.service.PizzaService;
 public class PizzaController {
     private final PizzaService pizzaService;
 
-    @Autowired
+
     public PizzaController (PizzaService pizzaService){
         this.pizzaService = pizzaService;
     }
@@ -48,6 +46,16 @@ public class PizzaController {
         return ResponseEntity.ok(this.pizzaService.save(pizza));
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @DeleteMapping("/{idPizza}")
+    public ResponseEntity<Void> delete(@PathVariable int idPizza){
+        if(this.pizzaService.exists(idPizza)){
+            this.pizzaService.delete(idPizza);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
+
     }
 
 }

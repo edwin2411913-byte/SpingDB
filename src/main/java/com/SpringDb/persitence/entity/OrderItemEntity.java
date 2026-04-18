@@ -8,13 +8,21 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
 @Table(name = "order_item")
 @IdClass(OrderItemId.class)
+@Getter
+@Setter
+@NoArgsConstructor
 public class OrderItemEntity {
 
     @Id
@@ -36,6 +44,7 @@ public class OrderItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_order", referencedColumnName ="id_order", insertable = false, updatable = false )
+    @JsonIgnore
     private OrderEntity order;
 
     @OneToOne

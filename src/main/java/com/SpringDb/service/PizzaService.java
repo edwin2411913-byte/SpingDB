@@ -27,6 +27,10 @@ public class PizzaService {
         return this.pizzaRepository.findAll();
     }
 
+    public List<PizzaEntity> getAvailable(){
+        return this.pizzaRepository.findAllByAvailableTrueOrderByPrice();
+    }
+
     public PizzaEntity get(int id){
          return this.pizzaRepository.findById(id).orElse(null);
     }
@@ -43,6 +47,11 @@ public class PizzaService {
     {
         this.pizzaRepository.deleteById(idPizza);
     }
+
+    public PizzaEntity getByName(String name){
+        return this.pizzaRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
+    }
+
 
 
 }

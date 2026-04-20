@@ -41,6 +41,17 @@ public class PizzaController {
         return ResponseEntity.ok(this.pizzaService.getByName(name));
     }
 
+     @GetMapping("/with/{ingrediente}")
+    public ResponseEntity<List<PizzaEntity>> getWhith(@PathVariable String ingrediente) {
+        return ResponseEntity.ok(this.pizzaService.getWhit(ingrediente));
+    }
+
+
+     @GetMapping("/without/{ingrediente}")
+    public ResponseEntity<List<PizzaEntity>> getWhithout(@PathVariable String ingrediente) {
+        return ResponseEntity.ok(this.pizzaService.getWhitout(ingrediente));
+    }
+
 
     @PostMapping
     public ResponseEntity<PizzaEntity>add (@RequestBody PizzaEntity pizza){

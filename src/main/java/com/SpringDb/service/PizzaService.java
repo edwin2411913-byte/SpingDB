@@ -31,6 +31,17 @@ public class PizzaService {
         return this.pizzaRepository.findAllByAvailableTrueOrderByPrice();
     }
 
+    public List<PizzaEntity> getWhit(String ingrediente){
+        return this.pizzaRepository.findAllByAvailableTrueAndDescriptionContainingIgnoreCase(ingrediente);
+    }
+
+        public List<PizzaEntity> getWhitout(String ingrediente){
+        return this.pizzaRepository.findAllByAvailableTrueAndDescriptionNotContainingIgnoreCase(ingrediente);
+    }
+
+
+
+
     public PizzaEntity get(int id){
          return this.pizzaRepository.findById(id).orElse(null);
     }
